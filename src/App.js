@@ -1,9 +1,14 @@
 import './App.css';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
 
-function App() {
+const App = props => {
   return (
     <div className="App">
-      <h1>Under Construction</h1>
+      <Header count={props.count} />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
