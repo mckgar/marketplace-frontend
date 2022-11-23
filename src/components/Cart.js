@@ -1,6 +1,12 @@
-const Cart = () => {
+import ViewItems from "./ViewItems";
+import './ViewItems.css';
+
+const Cart = props => {
   return (
-    <h2>Cart coming soon!</h2>
+    <main>
+      <h2>You have {props.cart.length} item{props.cart.length === 1 ? '' : 's'} in your cart!</h2>
+      <ViewItems items={props.cart} />
+    </main>
   );
 }
 
