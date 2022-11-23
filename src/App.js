@@ -6,9 +6,7 @@ const App = props => {
   return (
     <div className="App">
       <Header count={props.count} />
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
     </div>
   );
 }
