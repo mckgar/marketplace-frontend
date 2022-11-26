@@ -13,14 +13,14 @@ nav {
   gap: 1rem;
 }
 
-a {
+header a {
   padding: 0.5rem;
 
   text-decoration: none;
   color: hsl(0, 0%, 50%);
 }
 
-a:hover {
+header a:hover {
   text-decoration: underline;
   color: hsl(0, 0%, 25%);
 }

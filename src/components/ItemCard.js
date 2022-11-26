@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchItem } from '../server-calls';
+import { Link } from 'react-router-dom';
 import './ItemCard.css';
 
 const ItemCard = props => {
@@ -15,8 +16,10 @@ const ItemCard = props => {
 
   return (
     <div className='item-card'>
-      <img img={item.image} alt={item.name} />
-      <div className="item-name">{item.name}</div>
+      <Link to={`/${props.itemid}`} className='item-image' >
+        <img img={item.image} alt={item.name} />
+      </Link>
+      <Link to={`/${props.itemid}`} className="item-name" >{item.name}</Link>
       <div className='item-price'>${item.price}</div>
       <div className="item-seller">{item.seller}</div>
       <div className="item-category">{item.category}</div>
