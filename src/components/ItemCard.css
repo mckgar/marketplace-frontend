@@ -4,11 +4,11 @@
   padding: 0.25rem;
 
   display: grid;
-  grid-template-columns: 8rem 1fr;
+  grid-template-columns: 10rem 1fr;
   grid-template-rows: repeat(5, 1fr);
   justify-items: start;
 
-  height: 8rem;
+  height: 10rem;
 }
 
 img {
@@ -17,7 +17,7 @@ img {
 
   border: 1px solid black;
   aspect-ratio: 1 / 1;
-  height: 7rem;
+  height: 9rem;
 
   align-self: center;
   justify-self: center;
@@ -51,4 +51,13 @@ img {
 .item-price {
   grid-column: 2;
   grid-row: 4;
+}
+
+.item-category {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+.item-category::before {
+  content: 'Found in: ';
 }
