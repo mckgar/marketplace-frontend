@@ -1,0 +1,43 @@
+#cart {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  margin: 0 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.cart-content,
+.cart-summary {
+  height: 100%;
+}
+
+.cart-content {
+  grid-column: 1;
+}
+
+.cart-summary {
+  grid-column: 2;
+}
+
+.item-summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-price {
+  border-top: 1px solid black;
+  font-size: 1.5rem;
+  text-align: end;
+}
+
+.checkout-button {
+  background-color: black;
+  color: white;
+  border-radius: 1000px;
+
+  padding: .25rem 1rem;
+
+  cursor: pointer;
+}
