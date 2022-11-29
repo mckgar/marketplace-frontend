@@ -8,8 +8,13 @@ import ItemInfo from './components/ItemInfo';
 const RouteSwitch = () => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = itemid => {
-    setCart([...cart, itemid]);
+  const addToCart = (itemid, quantity) => {
+    setCart([...cart, {itemid, quantity}]);
+  }
+
+  const removeFromCart = itemid => {
+    const index = cart.findIndex(item => item.itemid === itemid);
+    setCart([...cart.slice(0, index), ...cart.slice(index + 1)]);
   }
 
   return (
@@ -17,8 +22,14 @@ const RouteSwitch = () => {
       <Routes>
         <Route path='/' element={<App count={cart.length} />}>
           <Route index element={<Home />} />
-          <Route path=':itemid' element={<ItemInfo addToCart={addToCart} />} />
-          <Route path='/cart' element={<Cart cart={cart} />} />
+          <Route
+            path=':itemid'
+            element={<ItemInfo addToCart={addToCart} />}
+          />
+          <Route
+            path='/cart'
+            element={<Cart cart={cart} removeFromCart={removeFromCart} />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,13 @@
+.item-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.item-page img {
+  border: 1px solid black;
+  grid-row: 1 / -1;
+
+  width: 90%;
+  aspect-ratio: 1 / 1;
+}

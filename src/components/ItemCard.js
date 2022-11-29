@@ -14,6 +14,22 @@ const ItemCard = props => {
     getItem();
   }, [props.itemid])
 
+  let quantity = null;
+
+  if (props.quantity) {
+    quantity = <div className='cart-quantity'>{props.quantity}</div>
+  }
+
+  let removeButton = null;
+
+  if (props.cart) {
+    removeButton = (
+      <div className="remove-cart">
+        <div onClick={() => props.removeFromCart(props.itemid)}>Remove from Cart</div>
+      </div>
+    );
+  }
+
   return (
     <div className='item-card'>
       <Link to={`/${props.itemid}`} className='item-image' >
@@ -23,6 +39,8 @@ const ItemCard = props => {
       <div className='item-price'>${item.price}</div>
       <div className="item-seller">{item.seller}</div>
       <div className="item-category">{item.category}</div>
+      {quantity}
+      {removeButton}
     </div>
   );
 }
