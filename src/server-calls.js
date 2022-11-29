@@ -1,3 +1,16 @@
+const mockItem = id => {
+  return {
+    id: id,
+    name: 'Test Item',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nunc augue, maximus sed sagittis ut, facilisis at leo. Nunc pharetra odio ac nibh sodales consequat. Nam tempor ullamcorper nunc, sit amet ultrices elit accumsan et. Morbi quis tellus vitae velit pharetra condimentum. Quisque a pretium magna, vitae pulvinar augue. Ut dictum nisl nec lacus mattis imperdiet. Aenean a mattis tortor. Nunc viverra, felis non fringilla maximus, lectus lectus condimentum diam, nec porttitor dui arcu ac felis. Fusce posuere mi id erat auctor lobortis. Ut fermentum erat et accumsan faucibus. Quisque sollicitudin nunc massa, cursus sagittis ligula imperdiet ut. Curabitur vel efficitur sapien. Aenean pharetra at arcu id accumsan.',
+    price: 6.99,
+    quantity: 23,
+    seller: 'Seller',
+    category: 'Clothing',
+    date_added: Date.now()
+  };
+}
+
 const fetchItem = async id => {
   /* try {
     const response = await fetch(`http://localhost:8080/item/${id}`);
@@ -8,16 +21,7 @@ const fetchItem = async id => {
     console.error(`Error fetching data: ${err}`);
   } */
   // Mock
-  return {
-    id: id,
-    name: 'Test Item',
-    description: 'This is an item',
-    price: 6.99,
-    quantity: 23,
-    seller: 'Seller',
-    category: 'Clothing',
-    date_added: Date.now()
-  }
+  return mockItem(id);
 }
 
 const fetchHomePageItems = async () => {
@@ -29,7 +33,11 @@ const fetchHomePageItems = async () => {
     console.error(`Error fetching data: ${err}`);
   } */
   // Mock
-  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+  const list = [];
+  for (let i = 0; i < 20; i++) {
+    list.push(mockItem(i));
+  }
+  return list;
 }
 
 export { fetchItem, fetchHomePageItems };
