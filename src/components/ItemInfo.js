@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { fetchItem } from "../server-calls";
 import './ItemInfo.css';
 
-const ItemInfo = props => {
+const ItemInfo = () => {
   const params = useParams();
+  const [cart, setCart] = useOutletContext();
+
   const [item, setItem] = useState({});
   const [quantity, setQuantity] = useState(1);
+
+  const addToCart = (itemid, quantity) => {
+    if (quantity > 0 && quantity <= item.quantity) {
+      setCart([...cart, {itemid, quantity}]);
+    }
+  }
 
   useEffect(() => {
     const getItem = async () => {
@@ -31,7 +39,7 @@ const ItemInfo = props => {
       <div className="cart-options">
         <div className="add-cart">
           <input type='number' min={1} max={item.quantity} placeholder={1} value={quantity} onChange={e => setQuantity(e.target.value)} />
-          <button onClick={() => props.addToCart(params.itemid, quantity)}>Add to Cart</button>
+          <button onClick={() => addToCart(params.itemid, quantity)}>Add to Cart</button>
         </div>
       </div>
     </div>
