@@ -16,7 +16,7 @@ const CartSummary = props => {
   const summary = (
     <div className="price-summary">
       {itemSummary}
-      <div className="total-price">${totalPrice}</div>
+      <div className="total-price">${totalPrice.toFixed(2)}</div>
     </div>
   );
   return summary;
