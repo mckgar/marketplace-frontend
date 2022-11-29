@@ -7,8 +7,8 @@ import CartSummary from "./CartSummary";
 const Cart = () => {
   const [cart, setCart] = useOutletContext();
 
-  const removeFromCart = id => {
-    const index = cart.findIndex(c => c.item.id === id);
+  const removeFromCart = item => {
+    const index = cart.findIndex(c => c.item.id === item.id);
     setCart([...cart.slice(0, index), ...cart.slice(index + 1)]);
   }
 
