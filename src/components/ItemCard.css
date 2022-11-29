@@ -16,7 +16,7 @@
   text-decoration: none;
 }
 
-.item-image {
+.item-image-card {
   grid-column: 1;
   grid-row: 1 / -1;
 
@@ -36,7 +36,7 @@ img {
   cursor: pointer;
 }
 
-.item-name {
+.item-name-card {
   font-size: 1.4rem;
   font-weight: bold;
 
@@ -46,7 +46,7 @@ img {
   cursor: pointer;
 }
 
-.item-seller {
+.item-seller-card {
   color: blue;
   grid-column: 2;
   grid-row: 3;
@@ -54,22 +54,22 @@ img {
   cursor: pointer;
 }
 
-.item-seller::before {
+.item-seller-card::before {
   content: 'From: ';
   color: black;
 }
 
-.item-price {
+.item-price-card {
   grid-column: 2;
   grid-row: 4;
 }
 
-.item-category {
+.item-category-card {
   grid-column: 2;
   grid-row: 5;
 }
 
-.item-category::before {
+.item-category-card::before {
   content: 'Found in: ';
 }
 
@@ -82,9 +82,18 @@ img {
   content: 'In cart: '
 }
 
-.remove-cart {
+.item-total-cost {
   grid-column: 3;
   grid-row: 6;
+}
+
+.item-total-cost::before {
+  content: 'Total: $';
+}
+
+.remove-cart {
+  grid-column: 3;
+  grid-row: 7;
   text-decoration: underline;
 
   cursor: pointer;

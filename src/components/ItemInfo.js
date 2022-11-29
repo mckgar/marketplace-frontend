@@ -10,9 +10,9 @@ const ItemInfo = () => {
   const [item, setItem] = useState({});
   const [quantity, setQuantity] = useState(1);
 
-  const addToCart = (itemid, quantity) => {
+  const addToCart = quantity => {
     if (quantity > 0 && quantity <= item.quantity) {
-      setCart([...cart, { itemid, quantity }]);
+      setCart([...cart, { item, quantity }]);
     }
   }
 
@@ -47,7 +47,7 @@ const ItemInfo = () => {
           <div className="decrease-quantity" onClick={() => changeQuantity('-')}>-</div>
           <div className="quantity">{quantity}</div>
           <div className="increase-quantity" onClick={() => changeQuantity('+')}>+</div>
-          <div className="add-button" onClick={() => addToCart(params.itemid, quantity)}>
+          <div className="add-button" onClick={() => addToCart(quantity)}>
             Add to Cart
           </div>
         </div>

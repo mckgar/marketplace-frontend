@@ -3,11 +3,10 @@ import ViewItems from "./ViewItems";
 import './ViewItems.css';
 
 const Cart = () => {
-
   const [cart, setCart] = useOutletContext();
 
-  const removeFromCart = itemid => {
-    const index = cart.findIndex(item => item.itemid === itemid);
+  const removeFromCart = id => {
+    const index = cart.findIndex(c => c.item.id === id);
     setCart([...cart.slice(0, index), ...cart.slice(index + 1)]);
   }
 

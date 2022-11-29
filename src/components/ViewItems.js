@@ -6,11 +6,11 @@ const ViewItems = props => {
 
   useEffect(() => {
     const populateCards = () => {
-      const deck = props.items.map((item, index) => {
+      const deck = props.items.map((c, index) => {
         return <ItemCard 
           key={index}
-          itemid={item.itemid || item}
-          quantity={item.quantity}
+          item={c.item || c}
+          quantity={c.quantity}
           cart={props.cart}
           removeFromCart={props.removeFromCart}
         />
