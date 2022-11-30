@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import './ItemCard.css';
 
 const ItemCard = props => {
+  const URL = `/item/${props.item.id}`;
+
   let quantity = null;
   let totalCost = null;
   let removeButton = null;
@@ -20,10 +22,10 @@ const ItemCard = props => {
 
   return (
     <div className='item-card'>
-      <Link to={`/${props.item.id}`} className='item-image-card' >
+      <Link to={URL} className='item-image-card' >
         <img src={props.item.image} alt={props.item.name} />
       </Link>
-      <Link to={`/${props.item.id}`} className="item-name-card" >{props.item.name}</Link>
+      <Link to={URL} className="item-name-card" >{props.item.name}</Link>
       <div className='item-price-card'>${props.item.price}</div>
       <div className="item-seller-card">{props.item.seller}</div>
       <div className="item-category-card">{props.item.category}</div>
