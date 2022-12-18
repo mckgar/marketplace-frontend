@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { fetchItem } from "../server-calls";
 import './ItemInfo.css';
 
+import { addToCart } from "../features/cart/cartSlice";
+
 const ItemInfo = () => {
   const params = useParams();
-  const [cart, setCart] = useOutletContext();
+
+  const dispatch = useDispatch();
 
   const [item, setItem] = useState({});
   const [quantity, setQuantity] = useState(1);
 
-  const addToCart = quantity => {
+  const add = quantity => {
     if (quantity > 0 && quantity <= item.quantity) {
-      setCart([...cart, { item, quantity }]);
+      dispatch(
+        addToCart({ item: item, quantity })
+      );
+      setQuantity(1);
     }
   }
 
@@ -28,13 +35,14 @@ const ItemInfo = () => {
   useEffect(() => {
     const getItem = async () => {
       const res = await fetchItem(params.itemid);
-      setItem(res);
+      res.item.item_id = params.itemid;
+      setItem(res.item);
     }
     getItem();
   }, [params]);
 
   return (
-    <div className="item-page">
+    <main className="item-page">
       <img img={item.image} alt={item.name} />
       <div className='item-view'>
         <div className="item-name">{item.name}</div>
@@ -47,12 +55,12 @@ const ItemInfo = () => {
           <div className="decrease-quantity" onClick={() => changeQuantity('-')}>-</div>
           <div className="quantity">{quantity}</div>
           <div className="increase-quantity" onClick={() => changeQuantity('+')}>+</div>
-          <div className="add-button" onClick={() => addToCart(quantity)}>
+          <div className="add-button" onClick={() => add(quantity)}>
             Add to Cart
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

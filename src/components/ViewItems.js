@@ -6,19 +6,18 @@ const ViewItems = props => {
 
   useEffect(() => {
     const populateCards = () => {
-      const deck = props.items.map((c, index) => {
+      const deck = props.items.length > 0 ? props.items.map((c, index) => {
         return <ItemCard 
           key={index}
           item={c.item || c}
           quantity={c.quantity}
           cart={props.cart}
-          removeFromCart={props.removeFromCart}
         />
-      });
+      }) : [];
       setCards(deck);
     }
     populateCards();
-  }, [props]);
+  }, [props.items]);
   
   return (
     <div id="items">
