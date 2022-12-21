@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { fetchItem } from "../server-calls";
-import './ItemInfo.css';
-
+import { useDispatch, useSelector } from "react-redux";
+import { reset, getItem } from '../features/item/itemSlice';
 import { addToCart } from "../features/cart/cartSlice";
+import { useParams } from "react-router-dom";
+import './ItemInfo.css';
+import Loader from "./Loader";
 
 const ItemInfo = () => {
   const params = useParams();
-
   const dispatch = useDispatch();
+  const { response, isLoading, isSuccess, isError, message } = useSelector(state => state.item);
 
   const [item, setItem] = useState({});
+  const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   const add = quantity => {
@@ -33,13 +34,28 @@ const ItemInfo = () => {
   }
 
   useEffect(() => {
-    const getItem = async () => {
-      const res = await fetchItem(params.itemid);
-      res.item.item_id = params.itemid;
-      setItem(res.item);
+    if (isSuccess || response) {
+      setItem(response);
     }
-    getItem();
-  }, [params]);
+    if (isError) {
+      setError(message);
+    }
+    dispatch(reset());
+  }, [response, isSuccess, isError, message, dispatch]);
+
+  useEffect(() => {
+    dispatch(getItem(params.itemid));
+  }, [params, dispatch]);
+
+  if (isLoading) {
+    return (
+      <Loader />
+    );
+  } else if (error) {
+    return (
+      <main>{error}</main>
+    );
+  }
 
   return (
     <main className="item-page">
