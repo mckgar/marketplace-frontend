@@ -4,6 +4,9 @@ import Cart from './components/Cart';
 import Home from './components/Home';
 import ItemInfo from './components/ItemInfo';
 import NotFound from './components/NotFound';
+import Account from './components/Account';
+import Login from './components/Login';
+import Register from './components/Register';
 
 const RouteSwitch = () => {
   return (
@@ -13,6 +16,9 @@ const RouteSwitch = () => {
           <Route index element={<Home />} />
           <Route path='/item/:itemid' element={<ItemInfo />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/account/:username' element={<Account />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
