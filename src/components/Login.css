@@ -1,0 +1,12 @@
+#login-form {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr) 1rem 1fr;
+}
+
+.error-message {
+  color: red;
+}
+
+#login-form .form-btn {
+  grid-row: 5;
+}

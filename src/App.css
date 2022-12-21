@@ -10,3 +10,74 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
+/* Forms */
+
+#login,
+#register {
+  justify-content: center;
+}
+
+#register-form,
+#login-form {
+  border: 2px solid black;
+  border-radius: 15px;
+
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.form-title {
+  grid-column: 1 / -1;
+  align-self: center;
+  justify-self: center;
+
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 20rem;
+}
+
+.validation-message {
+  height: 1rem;
+}
+
+input,
+.form-btn {
+  height: 2rem;
+  border-radius: 10px;
+}
+
+input {
+  appearance: none;
+  width: 20rem;
+  padding-left: 0.5rem;
+  border: 1px solid;
+
+  border-color: black;
+}
+
+input:not(:placeholder-shown):valid {
+  border-color: green;
+}
+
+input:not(:placeholder-shown):not(:focus):invalid {
+  border-color: red;
+}
+
+.form-btn {
+  border: none;
+
+  font-weight: bold;
+
+  color: white;
+  background-color: black;
+}

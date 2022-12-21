@@ -1,0 +1,56 @@
+#register-form {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+#register-form .form-btn {
+  grid-row: 6;
+}
+
+/* Validation */
+
+label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#register-form label::after,
+.pw-check::before {
+  content: '✔';
+  color: lightgray;
+  padding: 1px;
+}
+
+#register-form label.valid::after,
+.pw-check.valid::before {
+  color: green;
+}
+
+#register-form label.invalid::after {
+  content: '✖';
+  color: red;
+}
+
+.validation-message {
+  color: red;
+}
+
+input:placeholder-shown ~ .validation-message {
+  visibility: hidden;
+}
+
+#pw-validation.validation-message {
+  color: black;
+}
+
+#pw-validation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pw-check {
+  height: 1rem;
+  font-size: 0.9rem;
+}
