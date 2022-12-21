@@ -1,21 +1,30 @@
 import './Header.css';
 import { Link } from "react-router-dom";
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../features/auth/authSlice';
 
 const Header = () => {
   const cart = useSelector(state => state.cart);
-  const username = null;
+  const username = useSelector(state => state.auth.username);
 
-  let accountLink = <Link to={`/account/${username}`}>Profile</Link>;
-  const logoutLink = <Link to='/logout'>Logout</Link>
+  const dispatch = useDispatch();
+  
+  const onLogout = () => {
+    dispatch(logout());
+  };
+  
+  const [accountLink, setAccountLink] = useState(<Link to={`/account/${username}`}>{username}</Link>);
+
+  const logoutLink = <div className='logout-btn' onClick={onLogout}>Logout</div>
   const loginLink = <Link to='/login'>Login</Link>;
   const registerLink = <Link to='/register'>Register</Link>;
 
+
   useEffect(() => {
     if (username) {
-      accountLink = (
-        <Link to={`/account/${username}`}>Hello, {username}</Link>
+      setAccountLink(
+        <Link to={`/account/${username}`}>{username}</Link>
       );
     }
   }, [username]);
