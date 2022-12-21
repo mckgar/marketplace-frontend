@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { reset, getItem } from '../features/item/itemSlice';
 import { addToCart } from "../features/cart/cartSlice";
 import { useParams } from "react-router-dom";
-import './ItemInfo.css';
+import './ItemPage.css';
 import Loader from "./Loader";
 
 const ItemInfo = () => {

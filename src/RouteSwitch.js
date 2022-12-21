@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Cart from './components/Cart';
 import Home from './components/Home';
-import ItemInfo from './components/ItemInfo';
+import ItemInfo from './components/ItemPage';
 import NotFound from './components/NotFound';
 import Account from './components/Account';
 import Login from './components/Login';
