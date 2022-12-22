@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
+import './ViewItems.css';
 
 const ViewItems = props => {
   const [cards, setCards] = useState(null);
@@ -17,7 +18,7 @@ const ViewItems = props => {
       setCards(deck);
     }
     populateCards();
-  }, [props.items]);
+  }, [props]);
   
   return (
     <div id="items">

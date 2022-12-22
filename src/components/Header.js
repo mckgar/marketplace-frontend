@@ -5,15 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
 
 const Header = () => {
-  const cart = useSelector(state => state.cart);
+  const { cart } = useSelector(state => state.cart);
   const username = useSelector(state => state.auth.username);
 
   const dispatch = useDispatch();
-  
+
   const onLogout = () => {
     dispatch(logout());
   };
-  
+
   const [accountLink, setAccountLink] = useState(<Link to={`/account/${username}`}>{username}</Link>);
 
   const logoutLink = <div className='logout-btn' onClick={onLogout}>Logout</div>

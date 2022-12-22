@@ -18,7 +18,7 @@ const ItemInfo = () => {
   const add = quantity => {
     if (quantity > 0 && quantity <= item.quantity) {
       dispatch(
-        addToCart({ item: item, quantity })
+        addToCart({ itemid: params.itemid, quantity, maxQ: item.quantity })
       );
       setQuantity(1);
     }

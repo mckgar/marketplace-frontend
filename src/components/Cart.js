@@ -1,41 +1,66 @@
-import ViewItems from "./ViewItems";
-import './Cart.css';
-import './ViewItems.css';
-import CartSummary from "./CartSummary";
-import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { reset, populateCart } from "../features/cart/cartSlice";
+import ViewItems from "./ViewItems";
+import CartSummary from "./CartSummary";
+import Loader from "./Loader";
+import './Cart.css';
 
 const Cart = () => {
-  const cart = useSelector(state => state.cart);
-  const [page, setPage] = useState(<main id='cart'>Loading...</main>);
+  const dispatch = useDispatch();
+  const { cart, populated, isLoading, isSuccess, isError, message } = useSelector(state => state.cart);
+  
+  const [expandedCart, setExpandedCart] = useState([]);
+  const [error, setError] = useState(null);
 
-  // Determine page layout
   useEffect(() => {
-    if (cart.length > 0) {
-      setPage(
-        <main id="cart">
-          <div className="cart-content">
-            <h2>You have {cart.length} item{cart.length === 1 ? '' : 's'} in your cart!</h2>
-            <ViewItems items={cart} cart={true} />
-          </div>
-          <div className="cart-summary">
-            <h2>Cart Summary</h2>
-            <CartSummary cart={cart} />
-            <div className="checkout-button">Proceed to Checkout</div>
-          </div>
-        </main>
-      );
-    } else {
-      setPage(<main id="cart">
-        <div className="cart-content">
-          <h2>You have no items in your cart!</h2>
-        </div>
-      </main>
-      );
+    if (isSuccess || populated) {
+      setExpandedCart(populated);
     }
-  }, [cart]);
+    if (isError) {
+      setError(message);
+    }
+    dispatch(reset());
+  }, [populated, isSuccess, isError, message, dispatch]);
 
-  return page;
+  useEffect(() => {
+    dispatch(populateCart());
+  }, [cart, dispatch]);
+
+  if (isLoading) {
+    return (
+      <main id="cart">
+      <div className="cart-content">
+        <h2>You have {cart.length} item{cart.length === 1 ? '' : 's'} in your cart!</h2>
+        <Loader />
+      </div>
+      <div className="cart-summary">
+        <h2>Cart Summary</h2>
+        <Loader />
+      </div>
+    </main>
+    );
+  } else if (error) {
+    return (
+      <main id='cart'>
+        {error}
+      </main>
+    );
+  }
+
+  return (
+    <main id="cart">
+      <div className="cart-content">
+        <h2>You have {cart.length} item{cart.length === 1 ? '' : 's'} in your cart!</h2>
+        {<ViewItems items={expandedCart} cart={true} />}
+      </div>
+      <div className="cart-summary">
+        <h2>Cart Summary</h2>
+        {<CartSummary cart={expandedCart} />}
+        {cart.length > 0 ?<div className="checkout-button">Proceed to Checkout</div> : null}
+      </div>
+    </main>
+  );
 }
 
 export default Cart;
