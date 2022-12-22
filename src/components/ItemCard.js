@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../features/cart/cartSlice';
-import './ItemCard.css';
+import './styles/ItemCard.css';
 
 const ItemCard = props => {
   const URL = `/item/${props.item.item_id}`;
@@ -21,7 +21,7 @@ const ItemCard = props => {
 
   if (props.cart) {
     removeButton = (
-      <div className="remove-cart">
+      <div className="remove-btn">
         <div onClick={remove}>Remove from Cart</div>
       </div>
     );

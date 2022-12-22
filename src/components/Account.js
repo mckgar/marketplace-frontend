@@ -4,6 +4,7 @@ import { reset, getAccount } from "../features/account/accountSlice";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import ViewItems from "./ViewItems";
+import './styles/Account.css'
 
 const Account = () => {
   const params = useParams();
@@ -46,6 +47,7 @@ const Account = () => {
   return (
     <main id="account-page">
       <div className="account-info">
+        <img src={account.pfp} alt='Profile' />
         <div className="account-name">{account.username}</div>
         <div className="account-age">Created on {new Date(account.created_on).toLocaleString()}</div>
       </div>

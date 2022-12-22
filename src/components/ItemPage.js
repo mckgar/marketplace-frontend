@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { reset, getItem } from '../features/item/itemSlice';
 import { addToCart } from "../features/cart/cartSlice";
 import { useParams } from "react-router-dom";
-import './ItemPage.css';
 import Loader from "./Loader";
+import './styles/ItemPage.css';
 
 const ItemInfo = () => {
   const params = useParams();
@@ -59,7 +59,9 @@ const ItemInfo = () => {
 
   return (
     <main className="item-page">
-      <img img={item.image} alt={item.name} />
+      <div className="image-card">
+        <img src={item.image} alt={item.name} />
+      </div>
       <div className='item-view'>
         <div className="item-name">{item.name}</div>
         <div className="item-seller">{item.seller}</div>
@@ -71,7 +73,7 @@ const ItemInfo = () => {
           <div className="decrease-quantity" onClick={() => changeQuantity('-')}>-</div>
           <div className="quantity">{quantity}</div>
           <div className="increase-quantity" onClick={() => changeQuantity('+')}>+</div>
-          <div className="add-button" onClick={() => add(quantity)}>
+          <div className="add-btn" onClick={() => add(quantity)}>
             Add to Cart
           </div>
         </div>

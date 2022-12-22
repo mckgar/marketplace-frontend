@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
-import './ViewItems.css';
+import './styles/ViewItems.css';
 
 const ViewItems = props => {
   const [cards, setCards] = useState(null);

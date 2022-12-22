@@ -2,25 +2,59 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 2rem;
+
+  color: var(--text1)
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+}
+
+header,
+form,
+.item-card,
+.account-info,
+.image-card,
+.item-view {
+  background-color: var(--surface1);
+  box-shadow: var(--shadow);
 }
 
 /* Forms */
 
-#login,
-#register {
+form.error {
+  animation: error-jig 0.25s ease-in-out;
+}
+
+@keyframes error-jig {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+form {
   justify-content: center;
 }
 
 #register-form,
 #login-form {
-  border: 2px solid black;
   border-radius: 15px;
 
   display: grid;
@@ -51,7 +85,9 @@ main {
 }
 
 input,
-.form-btn {
+.form-btn,
+.add-btn,
+.checkout-btn {
   height: 2rem;
   border-radius: 10px;
 }
@@ -60,24 +96,33 @@ input {
   appearance: none;
   width: 20rem;
   padding-left: 0.5rem;
-  border: 1px solid;
+  border: 1px solid transparent;
+}
 
-  border-color: black;
+form :focus-visible {
+  outline: 2px solid var(--text2);
 }
 
 input:not(:placeholder-shown):valid {
-  border-color: green;
+  border-color: green
 }
 
 input:not(:placeholder-shown):not(:focus):invalid {
   border-color: red;
 }
 
-.form-btn {
+.form-btn,
+.add-btn,
+.checkout-btn {
   border: none;
 
+  color: var(--text1);
+  font-size: 1.2rem;
   font-weight: bold;
+  background-color: var(--brand);
+  cursor: pointer;
 
-  color: white;
-  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

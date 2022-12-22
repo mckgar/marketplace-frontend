@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { reset, login } from '../features/auth/authSlice';
 import Loader from "./Loader";
-import './Login.css';
+import './styles/Login.css';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <main id='login'>
-      <form id='login-form' onSubmit={(e) => handleLogin(e)}>
+      <form id='login-form' className={errorMessage ? 'error' : ''} onSubmit={(e) => handleLogin(e)}>
         <legend className="form-title">Login</legend>
         <div className="form-group">
           <label htmlFor="username">Username</label>

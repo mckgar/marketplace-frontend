@@ -3,16 +3,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-
-  border-bottom: 2px solid black;
-  /* box-shadow: 0 15px 15px rgba(0,0,0,0.5),
-    0 10px 10px rgba(0,0,0,0.25),
-    0 5px 5px rgba(0,0,0,0.125); */
 }
 
 .title {
   text-decoration: none;
-  color: black;
+  color: var(--brand);
 
   cursor: pointer;
 }
@@ -30,12 +25,13 @@ nav a,
   padding: 0.5rem;
 
   text-decoration: none;
-  color: hsl(0, 0%, 50%);
+  color: var(--text2);
 }
 
 nav a:hover,
 .logout-btn:hover {
   text-decoration: underline;
+  text-decoration-color: var(--brand);
+  color: var(--text1);
   cursor: pointer;
-  color: hsl(0, 0%, 25%);
 }

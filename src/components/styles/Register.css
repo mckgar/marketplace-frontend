@@ -18,7 +18,7 @@ label {
 #register-form label::after,
 .pw-check::before {
   content: '✔';
-  color: lightgray;
+  color: var(--text2);
   padding: 1px;
 }
 
@@ -41,7 +41,7 @@ input:placeholder-shown ~ .validation-message {
 }
 
 #pw-validation.validation-message {
-  color: black;
+  color: var(--text1);
 }
 
 #pw-validation {

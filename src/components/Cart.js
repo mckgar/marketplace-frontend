@@ -4,7 +4,7 @@ import { reset, populateCart } from "../features/cart/cartSlice";
 import ViewItems from "./ViewItems";
 import CartSummary from "./CartSummary";
 import Loader from "./Loader";
-import './Cart.css';
+import './styles/Cart.css';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const Cart = () => {
       <div className="cart-summary">
         <h2>Cart Summary</h2>
         {<CartSummary cart={expandedCart} />}
-        {cart.length > 0 ?<div className="checkout-button">Proceed to Checkout</div> : null}
+        {cart.length > 0 ?<div className="checkout-btn">Proceed to Checkout</div> : null}
       </div>
     </main>
   );

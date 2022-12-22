@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { reset, register } from '../features/auth/authSlice';
 import Loader from './Loader';
-import './Register.css';
+import './styles/Register.css';
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -47,6 +47,7 @@ const Register = () => {
         password: '',
         password2: '',
       }));
+      document.getElementById('register-form').classList.add('error');
     }
     if (isSuccess || token) {
       navigate('/');

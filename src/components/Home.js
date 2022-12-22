@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { reset, getItems } from '../features/item/itemSlice';
 import ViewItems from "./ViewItems";
 import Loader from "./Loader";
+import './styles/Home.css';
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -79,8 +80,8 @@ const Home = () => {
       {filters}
       <ViewItems items={items} />
       <div className="page-btns">
-        {offset > 0 ? <div className="page-btn" onClick={() => setOffset(offset - limit)}>Previous</div> : null}
-        {items.length >= limit ? <div className="page-btn" onClick={() => setOffset(offset + limit)}>Next</div> : null}
+        {offset > 0 ? <div tabIndex={0} className="page-btn previous" onClick={() => setOffset(offset - limit)}>Previous</div> : null}
+        {items.length >= limit ? <div tabIndex={0} className="page-btn next" onClick={() => setOffset(offset + limit)}>Next</div> : null}
       </div>
     </main>
   );

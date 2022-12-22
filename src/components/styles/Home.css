@@ -1,0 +1,45 @@
+.filters {
+  width: 95%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.filters select {
+  appearance: none;
+  border: 2px dotted var(--text2);
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  text-align: center;
+
+  color: var(--text1);
+  background-color: var(--surface4);
+
+  cursor: pointer;
+}
+
+.page-btns {
+  width: 95%;
+  display: grid;
+  grid-template-columns: 8rem 1fr 8rem;
+  grid-template-rows: 1fr;
+}
+
+.page-btn {
+  background-color: var(--surface4);
+  border: 2px dotted var(--text2);
+  border-radius: 1rem;
+  padding: 0.25rem;
+
+  cursor: pointer;
+}
+
+.page-btn.previous {
+  grid-column: 1;
+}
+
+.page-btn.next {
+  grid-column: 3;
+}

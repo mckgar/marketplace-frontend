@@ -1,0 +1,20 @@
+.loader {
+  align-self: center;
+  justify-self: center;
+
+  border: 5px solid;
+  border-color: var(--brand) transparent;
+  border-radius: 100%;
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  animation: rotate 1.12s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
