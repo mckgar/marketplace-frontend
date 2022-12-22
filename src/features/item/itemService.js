@@ -15,7 +15,7 @@ const getItem = async (id, token) => {
 
 const getItems = async (price, category, offset, limit, token) => {
   const priceQ = ['relevent', 'low', 'high'].includes(price) ? `p=${price}` : 'p=relevent';
-  const categoryQ = category ? `c=${category}` : 'c=all';
+  const categoryQ = ['books', 'clothing', 'toys', 'games', 'accessories', 'decorations', 'office'].includes(category) ? `c=${category}` : 'c=all';
   const offsetQ = offset >= 0 ? `o=${offset}` : 'o=0';
   const limitQ = limit >= 10 && limit <= 100 ? `l=${limit}` : 'l=20';
   const queries = `?${priceQ}&${categoryQ}&${offsetQ}&${limitQ}`;
