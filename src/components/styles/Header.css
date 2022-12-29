@@ -7,9 +7,19 @@ header {
 
 .title {
   text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
   color: var(--brand);
-
+  height: 4rem;
+  aspect-ratio: 1 / 1;
+  
   cursor: pointer;
+}
+
+#SVGRoot {
+  height: 4rem;
+  width: 4rem;
+  fill: var(--brand);
 }
 
 nav {

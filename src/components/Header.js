@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
+import {ReactComponent as Logo} from '../images/M.svg';
 
 const Header = () => {
   const { cart } = useSelector(state => state.cart);
@@ -33,7 +34,8 @@ const Header = () => {
   return (
     <header>
       <Link to='/' className="title">
-        <h1>Marketplace</h1>
+        <Logo />
+        {/* <img src='../images/M.svg' alt='Marketplace' /> */}
       </Link>
       <nav>
         <Link to='/'>Home</Link>
