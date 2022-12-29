@@ -41,7 +41,11 @@ const Login = () => {
   };
 
   if (isLoading) {
-    return <Loader />;
+    return (
+      <main id='login'>
+        <Loader />
+      </main>
+    );
   }
 
   return (

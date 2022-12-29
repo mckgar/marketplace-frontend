@@ -15,31 +15,6 @@ label {
   justify-content: space-between;
 }
 
-#register-form label::after,
-.pw-check::before {
-  content: '✔';
-  color: var(--text2);
-  padding: 1px;
-}
-
-#register-form label.valid::after,
-.pw-check.valid::before {
-  color: green;
-}
-
-#register-form label.invalid::after {
-  content: '✖';
-  color: red;
-}
-
-.validation-message {
-  color: red;
-}
-
-input:placeholder-shown ~ .validation-message {
-  visibility: hidden;
-}
-
 #pw-validation.validation-message {
   color: var(--text1);
 }

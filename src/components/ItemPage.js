@@ -59,22 +59,24 @@ const ItemInfo = () => {
 
   return (
     <main className="item-page">
-      <div className="image-card">
-        <img src={item.image} alt={item.name} />
-      </div>
-      <div className='item-view'>
-        <div className="item-name">{item.name}</div>
-        <div className="item-seller">{item.seller}</div>
-        <div className="item-description">{item.description}</div>
-        <div className='item-price'>${item.price}</div>
-        <div className="item-category">{item.category}</div>
-        <div className='item-quantity'>Available: {item.quantity}</div>
-        <div className="add-cart">
-          <div className="decrease-quantity" onClick={() => changeQuantity('-')}>-</div>
-          <div className="quantity">{quantity}</div>
-          <div className="increase-quantity" onClick={() => changeQuantity('+')}>+</div>
-          <div className="add-btn" onClick={() => add(quantity)}>
-            Add to Cart
+      <div className="big-card">
+        <div className="image-wrap">
+          <img src={item.image} alt='item' />
+        </div>
+        <div className='item-view'>
+          <div className="item-name">{item.name}</div>
+          <div className="item-seller">{item.seller}</div>
+          <div className="item-description">{item.description}</div>
+          <div className='item-price'>${item.price}</div>
+          <div className="item-category">{item.category}</div>
+          <div className='item-quantity'>Available: {item.quantity}</div>
+          <div className="add-cart">
+            <div className="decrease-quantity" tabIndex={0} onClick={() => changeQuantity('-')}>-</div>
+            <div className="quantity">{quantity}</div>
+            <div className="increase-quantity" tabIndex={0} onClick={() => changeQuantity('+')}>+</div>
+            <div className="add-btn" tabIndex={0} onClick={() => add(quantity)}>
+              Add to Cart
+            </div>
           </div>
         </div>
       </div>

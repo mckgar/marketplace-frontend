@@ -62,7 +62,7 @@ const Register = () => {
     }));
   };
 
-  const handleRegister = async e => {
+  const handleRegister = e => {
     e.preventDefault();
     const body = { username, email, password };
     dispatch(register(body));
@@ -209,7 +209,11 @@ const Register = () => {
   /* Rendering */
 
   if (isLoading) {
-    return <Loader />
+    return (
+      <main id='register'>
+        <Loader />
+      </main>
+    );
   }
 
   return (

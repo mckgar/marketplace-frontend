@@ -38,13 +38,15 @@
 }
 
 .item-name-card {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  min-height: 1.5rem;
   font-weight: bold;
 
   grid-column: 2;
   grid-row: 2;
 
   cursor: pointer;
+  overflow: hidden;
 }
 
 .item-seller-card {

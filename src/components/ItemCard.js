@@ -34,7 +34,7 @@ const ItemCard = props => {
   return (
     <div className='item-card'>
       <Link to={URL} className='item-image-card' >
-        <img src={props.item.image} alt={props.item.name} />
+        <img src={props.item.image} alt='item' />
       </Link>
       <Link to={URL} className="item-name-card" >{props.item.name}</Link>
       <div className='item-price-card'>${props.item.price}</div>

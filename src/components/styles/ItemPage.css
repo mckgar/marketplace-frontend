@@ -1,49 +1,55 @@
 .item-page {
   align-self: center;
   width: 95%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-
-.image-card {
-  grid-row: 1 / -1;
-  width: 90%;
-  aspect-ratio: 1 / 1;
-
-  padding: 1rem;
-  border-radius: 1rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.image-card img {
-  border: 2px solid var(--surface4);
+.big-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: 1rem;
+}
 
-  width: 100%;
+.image-wrap {
   height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrap img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  
+  border-radius: 1rem;
+  border: 2px solid var(--surface4);
 }
 
 .item-view {
+  text-align: left;
   height: 100%;
   display: grid;
   justify-content: center;
   justify-items: start;
   grid-template-columns: 1fr 1fr 0.5fr;
-  grid-template-rows: 2.5rem 1rem 1fr 1rem 2rem;
-  row-gap: 0.5rem;
+  grid-template-rows: 1fr 1rem 3fr 1rem 2rem;
+  row-gap: 1rem;
 
   padding: 1rem;
-  border-radius: 1rem;
 }
 
 .item-name {
-  grid-column: 1 / 3;
+  grid-column: 1 / -1;
   grid-row: 1;
 
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -55,10 +61,10 @@
 }
 
 .item-description {
-  grid-column: 1 / 3;
+  grid-column: 1 / -1;
   grid-row: 3;
 
-  text-align: left;
+  font-size: 1.2rem;
 }
 
 .item-date {
@@ -93,7 +99,7 @@
   justify-content: center;
   grid-template-columns: 2rem 2rem 2rem 12rem;
   grid-template-rows: 2rem;
-
+  
 }
 
 .decrease-quantity,
@@ -101,9 +107,11 @@
   cursor: pointer;
   user-select: none;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .quantity {
+  text-align: center;
   font-size: 1.5rem;
   border: 1px solid var(--text2);
   background-color: var(--surface2);
