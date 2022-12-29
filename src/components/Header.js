@@ -19,6 +19,7 @@ const Header = () => {
   const logoutLink = <div className='logout-btn' onClick={onLogout}>Logout</div>
   const loginLink = <Link to='/login'>Login</Link>;
   const registerLink = <Link to='/register'>Register</Link>;
+  const postLink = <Link to='/post'>Post</Link>;
 
 
   useEffect(() => {
@@ -36,6 +37,7 @@ const Header = () => {
       </Link>
       <nav>
         <Link to='/'>Home</Link>
+        {username && postLink}
         {username && accountLink}
         {username && logoutLink}
         {!username && loginLink}

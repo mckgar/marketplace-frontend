@@ -31,7 +31,6 @@ export const getItems = createAsyncThunk('item/getItems',
       if (response.message) return thunkAPI.rejectWithValue(response.message);
       return response.items;
     } catch (err) {
-      console.log(err)
       const message = (err.response && err.response.data && err.response.data.message)
         || err.message
         || err.toString();
@@ -43,10 +42,9 @@ export const createItem = createAsyncThunk('item/createItem', async (body, thunk
   try {
     const token = thunkAPI.getState().auth.token || '';
     const response = await itemService.createItem(body, token);
-    if (response.message) return thunkAPI.rejectWithValue(response.message);
+    if (response.errors) return thunkAPI.rejectWithValue(response.errors);
     return response;
   } catch (err) {
-    console.log(err)
     const message = (err.response && err.response.data && err.response.data.message)
       || err.message
       || err.toString();
@@ -96,7 +94,6 @@ export const itemSlice = createSlice({
         state.message = action.payload;
         state.response = null;
       })
-
       .addCase(createItem.pending, state => {
         state.isLoading = true;
       })

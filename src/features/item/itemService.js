@@ -38,10 +38,14 @@ const createItem = async (body, token) => {
     const response = await fetch(`/item`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     });
+    if (response.status === 201) {
+      return response.body;
+    }
     const res = await response.json();
     return res;
   } catch (err) {

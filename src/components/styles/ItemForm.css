@@ -1,0 +1,26 @@
+#item-form {
+  grid-template-columns: repeat(1fr);
+  grid-template-rows: 1fr 1fr 7rem repeat(4, 1fr);
+}
+
+#item-form .form-btn {
+  grid-row: 7;
+}
+
+label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#description {
+  border-radius: 10px;
+  height: 5rem;
+  resize: none;
+}
+
+#item-form label::after {
+  content: '✔';
+  color: var(--text2);
+  padding: 1px;
+}

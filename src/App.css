@@ -58,7 +58,8 @@ form {
 }
 
 #register-form,
-#login-form {
+#login-form,
+#item-form {
   border-radius: 15px;
 
   display: grid;
@@ -96,7 +97,8 @@ input,
   border-radius: 10px;
 }
 
-input {
+input,
+textarea {
   appearance: none;
   width: 20rem;
   padding-left: 0.5rem;
@@ -129,4 +131,32 @@ input:not(:placeholder-shown):not(:focus):invalid {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#register-form label::after,
+#item-form label::after,
+.pw-check::before {
+  content: '✔';
+  color: var(--text2);
+  padding: 1px;
+}
+
+#register-form label.valid::after,
+#item-form label.valid::after,
+.pw-check.valid::before {
+  color: green;
+}
+
+#register-form label.invalid::after, 
+#item-form label.invalid::after {
+  content: '✖';
+  color: red;
+}
+
+.validation-message {
+  color: red;
+}
+
+input:placeholder-shown ~ .validation-message {
+  visibility: hidden;
 }

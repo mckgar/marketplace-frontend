@@ -7,6 +7,7 @@ import NotFound from './components/NotFound';
 import Account from './components/Account';
 import Login from './components/Login';
 import Register from './components/Register';
+import ItemForm from './components/ItemForm';
 
 const RouteSwitch = () => {
   return (
@@ -19,6 +20,7 @@ const RouteSwitch = () => {
           <Route path='/account/:username' element={<Account />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/post' element={<ItemForm />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
