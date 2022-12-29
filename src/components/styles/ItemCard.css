@@ -29,7 +29,8 @@
   justify-self: center;
 }
 
-.item-image-card img {
+.item-image-card img,
+.item-image-card #SVGRoot {
   height: 100%;
   width: 100%;
   align-self: center;

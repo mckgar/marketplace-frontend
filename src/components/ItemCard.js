@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../features/cart/cartSlice';
 import './styles/ItemCard.css';
+import {ReactComponent as Logo} from '../images/M.svg';
 
 const ItemCard = props => {
   const URL = `/item/${props.item.item_id}`;
@@ -31,10 +32,16 @@ const ItemCard = props => {
     );
   }
 
+  let image = <Logo />;
+
+  if (props.item.image) {
+    image = <img src={props.item.image} alt='item' />;
+  }
+
   return (
     <div className='item-card'>
       <Link to={URL} className='item-image-card' >
-        <img src={props.item.image} alt='item' />
+        {image}
       </Link>
       <Link to={URL} className="item-name-card" >{props.item.name}</Link>
       <div className='item-price-card'>${props.item.price}</div>

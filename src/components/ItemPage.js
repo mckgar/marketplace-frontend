@@ -4,6 +4,7 @@ import { reset, getItem } from '../features/item/itemSlice';
 import { addToCart } from "../features/cart/cartSlice";
 import { useParams } from "react-router-dom";
 import Loader from "./Loader";
+import {ReactComponent as Logo} from '../images/M.svg';
 import './styles/ItemPage.css';
 
 const ItemInfo = () => {
@@ -57,11 +58,17 @@ const ItemInfo = () => {
     );
   }
 
+  let image = <Logo />;
+
+  if (item.image) {
+    image = <img src={item.image} alt='item' />;
+  }
+
   return (
     <main className="item-page">
       <div className="big-card">
         <div className="image-wrap">
-          <img src={item.image} alt='item' />
+          {image}
         </div>
         <div className='item-view'>
           <div className="item-name">{item.name}</div>

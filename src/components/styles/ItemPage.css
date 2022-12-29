@@ -24,9 +24,10 @@
   justify-content: center;
 }
 
-.image-wrap img {
+.image-wrap img,
+.image-wrap #SVGRoot {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   
   border-radius: 1rem;
   border: 2px solid var(--surface4);
