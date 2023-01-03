@@ -35,7 +35,6 @@ const Header = () => {
     <header>
       <Link to='/' className="title">
         <Logo />
-        {/* <img src='../images/M.svg' alt='Marketplace' /> */}
       </Link>
       <nav>
         <Link to='/'>Home</Link>

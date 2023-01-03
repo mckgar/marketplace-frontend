@@ -59,7 +59,6 @@ const Home = () => {
   if (isLoading) {
     return (
       <main id='home'>
-        <h2>Check out these items</h2>
         {filters}
         <Loader />
       </main>
@@ -67,7 +66,6 @@ const Home = () => {
   } else if (error) {
     return (
       <main id='home'>
-        <h2>Check out these items</h2>
         {filters}
         {error}
       </main>
@@ -76,7 +74,6 @@ const Home = () => {
 
   return (
     <main id='home'>
-      <h2>Check out these items</h2>
       {filters}
       <ViewItems items={items} />
       <div className="page-btns">

@@ -15,7 +15,7 @@
   text-align: center;
 
   color: var(--text1);
-  background-color: var(--surface4);
+  background-color: var(--surface2);
 
   cursor: pointer;
 }
@@ -28,7 +28,7 @@
 }
 
 .page-btn {
-  background-color: var(--surface4);
+  background-color: var(--surface2);
   border: 2px dotted var(--text2);
   border-radius: 1rem;
   padding: 0.25rem;

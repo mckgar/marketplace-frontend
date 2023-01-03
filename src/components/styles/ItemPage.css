@@ -30,7 +30,7 @@
   height: 100%;
   
   border-radius: 1rem;
-  border: 2px solid var(--surface4);
+  border: 2px solid var(--text2);
 }
 
 .item-view {
@@ -115,5 +115,5 @@
   text-align: center;
   font-size: 1.5rem;
   border: 1px solid var(--text2);
-  background-color: var(--surface2);
+  background-color: var(--surface1);
 }
