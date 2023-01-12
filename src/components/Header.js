@@ -18,32 +18,32 @@ const Header = () => {
   const [accountLink, setAccountLink] = useState(<Link to={`/account/${username}`}>{username}</Link>);
 
   const logoutLink = <div className='logout-btn' onClick={onLogout}>Logout</div>
-  const loginLink = <Link to='/login'>Login</Link>;
-  const registerLink = <Link to='/register'>Register</Link>;
-  const postLink = <Link to='/post'>Post</Link>;
+  const loginLink = <Link to='/marketplace-frontend/login'>Login</Link>;
+  const registerLink = <Link to='/marketplace-frontend/register'>Register</Link>;
+  const postLink = <Link to='/marketplace-frontend/post'>Post</Link>;
 
 
   useEffect(() => {
     if (username) {
       setAccountLink(
-        <Link to={`/account/${username}`}>{username}</Link>
+        <Link to={`/marketplace-frontend/account/${username}`}>{username}</Link>
       );
     }
   }, [username]);
 
   return (
     <header>
-      <Link to='/' className="title">
+      <Link to='/marketplace-frontend' className="title">
         <Logo />
       </Link>
       <nav>
-        <Link to='/'>Home</Link>
+        <Link to='/marketplace-frontend'>Home</Link>
         {username && postLink}
         {username && accountLink}
         {username && logoutLink}
         {!username && loginLink}
         {!username && registerLink}
-        <Link to='/cart'>Cart: {cart.length}</Link>
+        <Link to='/marketplace-frontend/cart'>Cart: {cart.length}</Link>
       </nav>
     </header>
   )

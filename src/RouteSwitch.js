@@ -13,15 +13,15 @@ const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />}>
+        <Route path='/marketplace-frontend' element={<App />}>
           <Route index element={<Home />} />
-          <Route path='/item/:itemid' element={<ItemInfo />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/account/:username' element={<Account />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/post' element={<ItemForm />} />
-          <Route path='*' element={<NotFound />} />
+          <Route path='/marketplace-frontend/item/:itemid' element={<ItemInfo />} />
+          <Route path='/marketplace-frontend/cart' element={<Cart />} />
+          <Route path='/marketplace-frontend/account/:username' element={<Account />} />
+          <Route path='/marketplace-frontend/login' element={<Login />} />
+          <Route path='/marketplace-frontend/register' element={<Register />} />
+          <Route path='/marketplace-frontend/post' element={<ItemForm />} />
+          <Route path='/marketplace-frontend/*' element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
