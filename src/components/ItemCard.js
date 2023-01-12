@@ -23,7 +23,7 @@ const ItemCard = props => {
   if (props.cart) {
     removeButton = (
       <div className="remove-btn">
-        <div onClick={remove}>Remove from Cart</div>
+        <div onClick={remove}>Remove</div>
       </div>
     );
     quantity = <div className='cart-quantity'>{props.quantity}</div>

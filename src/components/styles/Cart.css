@@ -37,3 +37,19 @@ h2 {
 .checkout-btn {
   padding: .25rem 1rem;
 }
+
+@media (max-width: 1000px) {
+  #cart {
+    align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    
+    width: 95vw;
+  }
+
+  #items {
+    align-self: center;
+  }
+}

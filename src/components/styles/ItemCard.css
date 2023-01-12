@@ -8,7 +8,6 @@
   justify-items: start;
 
   height: 10rem;
-  padding-right: 1rem;
 }
 
 .item-card a {
@@ -22,8 +21,8 @@
 
   border: 2px solid var(--text2);
   border-radius: 1rem;
+  width: 90%;
   aspect-ratio: 1 / 1;
-  height: 9rem;
 
   align-self: center;
   justify-self: center;
@@ -31,8 +30,8 @@
 
 .item-image-card img,
 .item-image-card #SVGRoot {
-  height: 100%;
   width: 100%;
+  height: auto;
   align-self: center;
   justify-self: center;
   cursor: pointer;
@@ -43,11 +42,12 @@
   min-height: 1.5rem;
   font-weight: bold;
 
-  grid-column: 2;
+  grid-column: 2 / 4;
   grid-row: 2;
 
   cursor: pointer;
   overflow: hidden;
+  word-break: break-all;
 }
 
 .item-seller-card {
@@ -90,7 +90,7 @@
 .remove-btn {
   grid-column: 3;
   grid-row: 7;
-  
+
   color: var(--text2);
   cursor: pointer;
 }
@@ -99,4 +99,10 @@
   text-decoration: underline;
   text-decoration-color: var(--brand);
   color: var(--text1);
+}
+
+@media (max-width: 800px) {
+  .item-card {
+    grid-template-columns: 8rem 1fr;
+  }
 }

@@ -33,6 +33,7 @@ form,
 .big-card {
   background-color: var(--surface3);
   box-shadow: var(--shadow);
+  max-width: 95vw;
 }
 
 /* Forms */
@@ -85,7 +86,7 @@ form {
   flex-direction: column;
   align-items: flex-start;
 
-  width: 20rem;
+  width: min(20rem, 90vw);
 }
 
 .validation-message {
@@ -98,12 +99,13 @@ input,
 .checkout-btn {
   height: 2rem;
   border-radius: 10px;
+  width: min(20rem, 90vw);
 }
 
 input,
 textarea {
   appearance: none;
-  width: 20rem;
+  width: min(20rem, 90vw);
   padding-left: 0.5rem;
   border: 1px solid transparent;
 }
