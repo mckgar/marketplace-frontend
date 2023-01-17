@@ -22,7 +22,7 @@ const Login = () => {
     if (isError) {
       setErrorMessage(message);
     } else if (isSuccess || token) {
-      navigate('/');
+      navigate('/marketplace-frontend');
     }
     dispatch(reset());
   }, [token, isError, isSuccess, message, dispatch, navigate]);

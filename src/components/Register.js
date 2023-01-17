@@ -50,7 +50,7 @@ const Register = () => {
       document.getElementById('register-form').classList.add('error');
     }
     if (isSuccess || token) {
-      navigate('/');
+      navigate('/marketplace-frontend');
     }
     dispatch(reset());
   }, [token, isError, isSuccess, message, dispatch, navigate]);

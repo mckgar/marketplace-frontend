@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../features/auth/authSlice';
-import {ReactComponent as Logo} from '../images/M.svg';
+import { ReactComponent as Logo } from '../images/M.svg';
+import { FaBars } from 'react-icons/fa';
 
 const Header = () => {
   const { cart } = useSelector(state => state.cart);
@@ -15,21 +16,35 @@ const Header = () => {
     dispatch(logout());
   };
 
-  const [accountLink, setAccountLink] = useState(<Link to={`/account/${username}`}>{username}</Link>);
+  const [accountLink, setAccountLink] = useState(<li><Link to={`/account/${username}`}>{username}</Link></li>);
 
-  const logoutLink = <div className='logout-btn' onClick={onLogout}>Logout</div>
-  const loginLink = <Link to='/marketplace-frontend/login'>Login</Link>;
-  const registerLink = <Link to='/marketplace-frontend/register'>Register</Link>;
-  const postLink = <Link to='/marketplace-frontend/post'>Post</Link>;
+  const logoutLink = <li><div className='logout-btn' onClick={onLogout}>Logout</div></li>
+  const loginLink = <li><Link to='/marketplace-frontend/login'>Login</Link></li>;
+  const registerLink = <li><Link to='/marketplace-frontend/register'>Register</Link></li>;
+  const postLink = <li><Link to='/marketplace-frontend/post'>Post</Link></li>;
 
 
   useEffect(() => {
     if (username) {
       setAccountLink(
-        <Link to={`/marketplace-frontend/account/${username}`}>{username}</Link>
+        <li><Link to={`/marketplace-frontend/account/${username}`}>{username}</Link></li>
       );
     }
   }, [username]);
+
+  const toggleMenu = () => {
+    document.getElementById('nav-icon').classList.toggle('selected');
+    document.getElementById('nav-menu').classList.toggle('selected');
+
+    document.getElementById('nav-menu').addEventListener('click', removeMenu);
+  };
+
+  const removeMenu = () => {
+    document.getElementById('nav-icon').classList.remove('selected');
+    document.getElementById('nav-menu').classList.remove('selected');
+
+    document.getElementById('nav-menu').removeEventListener('click', removeMenu);
+  };
 
   return (
     <header>
@@ -37,13 +52,20 @@ const Header = () => {
         <Logo />
       </Link>
       <nav>
-        <Link to='/marketplace-frontend'>Home</Link>
-        {username && postLink}
-        {username && accountLink}
-        {username && logoutLink}
-        {!username && loginLink}
-        {!username && registerLink}
-        <Link to='/marketplace-frontend/cart'>Cart: {cart.length}</Link>
+        <button id='nav-icon' onClick={toggleMenu}><FaBars /></button>
+        <ul id='nav-menu'>
+          <li>
+            <Link to='/marketplace-frontend'>Home</Link>
+          </li>
+            {username && postLink}
+            {username && accountLink}
+            {username && logoutLink}
+            {!username && loginLink}
+            {!username && registerLink}
+          <li>
+            <Link to='/marketplace-frontend/cart'>Cart: {cart.length}</Link>
+          </li>
+        </ul>
       </nav>
     </header>
   )
