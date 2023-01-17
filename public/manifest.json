@@ -2,6 +2,9 @@
   "short_name": "Marketplace",
   "name": "Marketplace",
   "start_url": ".",
+  "icons": [
+    { "source": "./M.svg", "type": "image/svg"}
+  ],
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
