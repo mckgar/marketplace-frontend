@@ -1,7 +1,7 @@
 import './styles/NotFound.css';
 
 const NotFound = () => {
-  return <div id="not-found">Oops, there's nothing here</div>;
+  return <main id="not-found">Oops, there's nothing here</main>;
 }
 
 export default NotFound;

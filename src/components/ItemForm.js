@@ -66,7 +66,7 @@ const ItemForm = () => {
       document.getElementById('item-form').classList.add('error');
     }
     if (isSuccess || response) {
-      navigate(`/account/${username}`);
+      navigate(`/marketplace-frontend/account/${username}`);
     }
     dispatch(reset());
   }, [response, isError, isSuccess, message, dispatch, navigate, username])
@@ -224,6 +224,7 @@ const ItemForm = () => {
             type={'number'}
             placeholder=''
             min={0}
+            step={0.01}
             required
             value={form.price}
             onChange={e => onChange(e)}
@@ -265,7 +266,7 @@ const ItemForm = () => {
           </select>
           <div id='category-validation' className='validation-message'></div>
         </div>
-        <button type="submit" className='form-btn'>Register</button>
+        <button type="submit" className='form-btn'>Submit</button>
       </form>
     </main>
   );

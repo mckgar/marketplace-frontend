@@ -5,9 +5,6 @@ import './styles/ItemCard.css';
 import {ReactComponent as Logo} from '../images/M.svg';
 
 const ItemCard = props => {
-  const URL = `/item/${props.item.item_id}`;
-  const accountURL = `/account/${props.item.seller}`;
-
   let quantity = null;
   let totalCost = null;
   let removeButton = null;
@@ -40,12 +37,12 @@ const ItemCard = props => {
 
   return (
     <div className='item-card'>
-      <Link to={URL} className='item-image-card' >
+      <Link to={`/marketplace-frontend/item/${props.item.item_id}`} className='item-image-card' >
         {image}
       </Link>
-      <Link to={URL} className="item-name-card" >{props.item.name}</Link>
+      <Link to={`/marketplace-frontend/item/${props.item.item_id}`} className="item-name-card" >{props.item.name}</Link>
       <div className='item-price-card'>${props.item.price}</div>
-      <Link to={accountURL} className="item-seller-card">{props.item.seller}</Link>
+      <Link to={`/marketplace-frontend/account/${props.item.seller}`} className="item-seller-card">{props.item.seller}</Link>
       <div className="item-category-card">{props.item.category}</div>
       {quantity}
       {totalCost}
